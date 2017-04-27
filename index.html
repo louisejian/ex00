@@ -197,7 +197,13 @@
     <input type="button" onclick="launch()" value="click">
     
 <script>
+    var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
     
+    
+    
+}
     function launch(){
         var num=random(1,50);
         console.log(num);
