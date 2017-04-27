@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>D3 Course</title>
+    
+    <script  >
+	 
+	 
+	 var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     
+     <script src="https://d3js.org/d3.v3.min.js"></script>
+	
+	</script>
 </head>
+    <style>
+.SvgBackgroundColor{
+
+ background-color:#fdf5e6;
+
+
+}
+</style>
 <body>
   <h1>小王子</h1>
 然後他又回到狐狸那裡。 <br>
@@ -74,8 +97,165 @@
    <a  href=" http://www.google.com/doodles/evidence-of-water-found-on-mars" target="_new">
 <img src="http://www.google.com/logos/doodles/2015/evidence-of-water-found-on-mars-5652760466817024.2-hp2x.gif" height=200px alt="在火星上發現水存在的證據">
 </a> 
+<hr>   
+    
+  <svg width="300" height="200" id="svg1">
+       <circle cx="150" cy="120" r=15></circle>
+       <rect x="160" y="45" width="5" height="78"></rect>
+   
+   
+    </svg> 
     
     
+    <script  >
+	
+	d3.select("#svg1").attr("class","SvgBackgroundColor");
+	
+	for(var i=0;i<5;i=i+1){
+	
+	d3.select("#svg1").append("rect").attr({
+    
+    "x" :0,
+    "y" :42+30*i,
+    "width":300,
+    "height":3
+	
+	
+	
+	
+    
+    
+});
+
+
+     d3.select('#svg1').append('text').attr('x', 140).attr('y', 190).style('font-size', '28px').text('A');
+	
+	};
+   
+	
+	</script>  
+        
+  <hr>    
+   <p></p>
+    <input type="button" onclick="launch()" value="click">
+    
+<script>
+    
+    function launch(){
+        var num=random(1,50);
+        console.log(num);
+        d3.select("p").text(num);
+        
+    }
+    
+    
+    
+</script>
+ <hr>  
+   
+    <svg width="800" height="700" id="svg3">
+       
+   
+   
+ </svg> 
+ 
+ 
+ <script>
+     
+     var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     
+     
+     for(var i=0;i<20;i=i+1){
+         var num=random(20,300);
+         
+    d3.select("#svg3")
+      .append("rect")
+      .attr({
+        "x":10,      
+        "y":10+12*i,       
+        "width":num, 
+        "height":10,      
+        "fill":"pink"       
+              });
+         
+         
+        d3.select("#svg3")
+      .append("text")
+      .attr({
+        "x":10+num+15,      
+        "y":10+12*i+10,
+        "font-size":9    
+             
+       }).text(num);
+         
+         
+         
+  }
+    
+  </script>
+    
+  <hr>  
+    <svg width="800" height="700" id="svg4">
+       
+   
+   
+ </svg> 
+ 
+ 
+ <script>
+     
+     var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     var points="10,10 ";//要空格不然會變垂直的圖
+     
+     for(var i=0;i<20;i=i+1){
+         var num=random(20,300);
+         points=points+(10+num)+","+(10+12*i)+" "
+    d3.select("#svg4")
+      .append("circle")
+      .attr({
+        "cx":10+num,      
+        "cy":10+12*i,       
+        "r":4,          
+        "fill":"pink"       
+              });
+         
+         
+        d3.select("#svg4")
+      .append("text")
+      .attr({
+        "x":10+num+15,      
+        "y":10+12*i+10,
+        "font-size":9    
+             
+       }).text(num);
+         
+         
+         
+  }
+   points=points+"10,"+(10+12*20); 
+     
+     d3.select("#svg4")
+      .append("polyline")   //polygon封閉形狀頭尾會接上
+      .attr({
+        "points":points,
+        "stroke":"pink",         
+        "fill":"rgba(0,0,0,0)"       
+              });
+         
+    
+  </script>
     
 </body>
 </html>
