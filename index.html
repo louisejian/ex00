@@ -197,26 +197,20 @@
     <input type="button" onclick="launch()" value="click">
     
 <script>
-    var random=function(N,M){
-    N=N+1;
-    return   Math.floor(Math.random()*(M-N+1) +N );
-    
-    
-    
-}
+  
     function launch(){
         var num=random(1,50);
         console.log(num);
         d3.select("p").text(num);
         
-    };
+    }
     
     
     
 </script>
 	
 <hr>	
-<svg width="800" height="700" id="svg3">
+<svg width="800" height="300" id="svg3">
        
    
    
