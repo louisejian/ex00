@@ -203,13 +203,59 @@
         console.log(num);
         d3.select("p").text(num);
         
-    }
+    };
     
     
     
 </script>
 	
-	
+<hr>	
+<svg width="800" height="700" id="svg3">
+       
+   
+   
+ </svg> 
+ 
+ 
+ <script>
+     
+     var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     
+     
+     for(var i=0;i<20;i=i+1){
+         var num=random(20,300);
+         
+    d3.select("#svg3")
+      .append("rect")
+      .attr({
+        "x":10,      
+        "y":10+12*i,       
+        "width":num, 
+        "height":10,      
+        "fill":"pink"       
+              });
+         
+         
+        d3.select("#svg3")
+      .append("text")
+      .attr({
+        "x":10+num+15,      
+        "y":10+12*i+10,
+        "font-size":9    
+             
+       }).text(num);
+         
+         
+         
+  }
+    
+  </script>	
     
 </body>
 </html>
