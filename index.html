@@ -118,43 +118,235 @@
  </script>
  <input type="button" value="新增" onclick="update()">
  <input type="button" value="移除" onclick="update_remove()">
+<hr>
+<h1>小王子</h1>
+然後他又回到狐狸那裡。 <br>
+「再見了！」小王子說<br>
+「再見了！」狐狸說。<br>
+<blockquote>「我的秘密很簡單：<strong>唯有心才能看得清楚</strong>，眼睛是看不到真正重要的東西的。」</blockquote
+  >
+<p>小王子複述一遍：「真正的東西不是用眼睛可以看得到的。」</p>
+<hr>  
+關&nbsp;&nbsp;  關&nbsp;&nbsp;  雎&nbsp;&nbsp;鳩<br>
+在&nbsp;&nbsp;  河&nbsp;&nbsp;  之&nbsp;&nbsp;洲<br>
+<!--註  解  此  行-->
+窈&nbsp;&nbsp;  窕&nbsp;&nbsp;  淑&nbsp;&nbsp;女<br>
+君&nbsp;&nbsp; 子&nbsp;&nbsp;  好&nbsp;&nbsp;逑<br>
 
-<script>
-		var arr = [85, 60, 99, 49, 77, 82,60,77,88];
+<br>詩．周南．關睢
+    
+<hr>      
+    
+<table border="1">
 
-		bind();
-		render();
 
-		
-		console.log(d3.selectAll("div"));
-		
-		function bind(){
-		var selection=d3.select("body")
+<tr>
+<th colspan="4">直轄市長辦公地址</th>
+</tr>
+<tr>  
+<th>直轄市	</th>
+<th>職稱</th>
+<th>姓名</th>
+<th>辦公地址</th>
+</tr> 
+<tr>  
+<td>臺北市</td>	
+<td rowspan="6">市長	</td>
+<td> 柯文哲</td>	
+<td> 臺北市信義區西村里市府路1號</td>
+    </tr>
+ <tr>
+<td>高雄市</td>
+<td> 陳菊  </td>	
+<td>   高雄市苓雅區晴朗里四維3路2號</td>	
+</tr>
+  
+ <tr> 
+<td>新北市</td>	
+  	
+<td> 朱立倫</td>	
+<td>新北市板橋區中山路1段161號</td>
+</tr>
+ <tr>   
+<td>臺中市	</td>	
+ <td> 林佳龍</td>	
+ <td> 臺中市西屯區臺灣大道3段99號</td>
+ </tr>  
+   
+ <tr>
+   <td>臺南市</td>		
+ <td> 賴清德</td>	
+  <td>臺南市安平區永華路2段6號</td>
+   </tr>
+<tr>
+  <td>桃園市</td>		
+  <td>鄭文燦</td>	
+  <td>桃園市桃園區光興里縣府路1號</td>
+   </tr> 
+</table>
+<hr>   
+  <svg width="300" height="200" id="svg1">
+       <circle cx="150" cy="120" r=15></circle>
+       <rect x="160" y="45" width="5" height="78"></rect>
+   
+   
+    </svg> 
+    
+    
+    <script  >
+	
+	d3.select("#svg1").attr("class","SvgBackgroundColor");
+	
+	for(var i=0;i<5;i=i+1){
+	
+	d3.select("#svg1").append("rect").attr({
+    
+    "x" :0,
+    "y" :42+30*i,
+    "width":300,
+    "height":3
+	
+	
+	
+	
+    
+    
+});
 
-			.selectAll("div")
 
-			.data(arr);
-		selection.enter()
-					.append("div");
-			
-		selection.exit().remove();	
-			
-		}
-		function render(){
-		d3.selectAll("div").style({color:function(d){
-		if (d<70){
-		return "red";
-		}
-			else{
-				return "black";
-			}
-		}
-											}).text(function(d,i){
-		return (i+1)+":"+d;
-		});
-		}
+     d3.select('#svg1').append('text').attr('x', 140).attr('y', 190).style('font-size', '28px').text('A');
+ 
+
+
+
+	
+	};
 
 	</script>
+	
+	
+<hr>	
+	
+<svg width="800" height="400" id="svg4">
+       
+   
+   
+ </svg> 
+ 
+ 
+ <script>
+     
+     var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     var points="10,10 ";//要空格不然會變垂直的圖
+     
+     for(var i=0;i<20;i=i+1){
+         var num=random(20,300);
+         points=points+(10+num)+","+(10+12*i)+" "
+    d3.select("#svg4")
+      .append("circle")
+      .attr({
+        "cx":10+num,      
+        "cy":10+12*i,       
+        "r":4,          
+        "fill":"pink"       
+              });
+         
+         
+        d3.select("#svg4")
+      .append("text")
+      .attr({
+        "x":10+num+15,      
+        "y":10+12*i+10,
+        "font-size":9    
+             
+       }).text(num);
+         
+         
+         
+  }
+   points=points+"10,"+(10+12*20); 
+     
+     d3.select("#svg4")
+      .append("polyline")   //polygon封閉形狀頭尾會接上
+      .attr({
+        "points":points,
+        "stroke":"pink",         
+        "fill":"rgba(0,0,0,0)"       
+              });
+         
+    
+  </script>	
+<hr>	
+  <p></p>
+    <input type="button" onclick="launch()" value="click">
+    
+<script>
+  
+    function launch(){
+        var num=random(1,50);
+        console.log(num);
+        d3.select("p").text(num);
+        
+    }
+    
+    
+    
+</script>
+	
+<hr>	
+<svg width="800" height="300" id="svg3">
+       
+   
+   
+ </svg> 
+ 
+ 
+ <script>
+     
+     var random=function(N,M){
+    N=N+1;
+    return   Math.floor(Math.random()*(M-N+1) +N );
+    
+    
+    
+}
+     
+     
+     for(var i=0;i<20;i=i+1){
+         var num=random(20,300);
+         
+    d3.select("#svg3")
+      .append("rect")
+      .attr({
+        "x":10,      
+        "y":10+12*i,       
+        "width":num, 
+        "height":10,      
+        "fill":"pink"       
+              });
+         
+         
+        d3.select("#svg3")
+      .append("text")
+      .attr({
+        "x":10+num+15,      
+        "y":10+12*i+10,
+        "font-size":9    
+             
+       }).text(num);
+         
+         
+         
+  }
+    
+  </script>	
+    
 
 </body>
 
