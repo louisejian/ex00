@@ -1,55 +1,15 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-    <script src=""></script>
+ <meta charset="UTF-8">
+ <title>Document</title>
+ <script src="https://d3js.org/d3.v3.js"></script>
 </head>
+
 <body>
-  <svg width="900" height="400" id="svg3"></svg>
-
-   <script>
- 
-       //不動產橫條圖結合數據csv
-   d3.csv("invoice-taipei.csv", function(dataSet) {
-	 
-	 var svg3 = d3.select("#svg3"); 
-	 var xScale = d3.scale.linear()
-		.domain([0, 1000000000])
-		.range([0, 10]);
-       
-     var fDataSet = dataSet.filter(function(d) {
-        return d.amount > 1000000000 && d.date === "2016/8/1" && d.cid === "A";
-     });
-       
-     for (var i = 0; i < fDataSet.length; i++ ) {
-        svg3.append("text")
-			.attr({
-				"x": 10,
-				"y": 55 + 30 * i })
-			.text(fDataSet[i].industry);
-		
-		svg3.append("rect")
-			.attr({
-				"x": 350,
-				"y": 33 + 30 * i,
-				"width": xScale(fDataSet[i].amount),
-				"height": 25,
-				"fill": "#CA8EFF"
-			});
-			
-		svg3.append("text")
-			.attr({
-				"x": 10+350+xScale(fDataSet[i].amount),
-				"y": 55 + 30 * i })
-			.text(fDataSet[i].amount);
-	 } 
-	}); 
-
-    </script> 
-   <div></div>
+ <div></div>
  <script>
   var arr = [85, 60, 99, 49, 77, 82, 60, 77, 88];
   var w = 800,
@@ -158,5 +118,44 @@
  </script>
  <input type="button" value="新增" onclick="update()">
  <input type="button" value="移除" onclick="update_remove()">
+
+<script>
+		var arr = [85, 60, 99, 49, 77, 82,60,77,88];
+
+		bind();
+		render();
+
+		
+		console.log(d3.selectAll("div"));
+		
+		function bind(){
+		var selection=d3.select("body")
+
+			.selectAll("div")
+
+			.data(arr);
+		selection.enter()
+					.append("div");
+			
+		selection.exit().remove();	
+			
+		}
+		function render(){
+		d3.selectAll("div").style({color:function(d){
+		if (d<70){
+		return "red";
+		}
+			else{
+				return "black";
+			}
+		}
+											}).text(function(d,i){
+		return (i+1)+":"+d;
+		});
+		}
+
+	</script>
+
 </body>
+
 </html>
