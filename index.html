@@ -31,7 +31,8 @@
 <body>
 <svg width="900" height="400" id="svg3"></svg>
 
-
+ <input type="button" value="新增" onclick="update()">
+ <input type="button" value="移除" onclick="update_remove()">
 	
  <script>
   var arr = [85, 60, 99, 49, 77, 82, 60, 77, 88];
@@ -138,13 +139,12 @@
    render();
 
   }
- </script>
- <input type="button" value="新增" onclick="update()">
- <input type="button" value="移除" onclick="update_remove()">
+
+
 	
 <hr>	
 
- <script>
+ 
  
        //不動產橫條圖結合數據csv
    d3.csv("invoice-taipei.csv", function(dataSet) {
