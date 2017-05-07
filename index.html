@@ -55,7 +55,7 @@
 	
 	
 <hr>	
-<div></div>
+<div id="ko"></div>
  <script>
   var arr = [85, 60, 99, 49, 77, 82, 60, 77, 88];
   var w = 800,
@@ -66,10 +66,10 @@
   bind();
   render();
 
-  console.log(d3.selectAll("div"));
+  console.log(d3.selectAll("#ko"));
 
   function svg() {
-   d3.select("div").append("svg").attr({
+   d3.select("#ko").append("svg").attr({
     width: w,
     height: h,
    });
