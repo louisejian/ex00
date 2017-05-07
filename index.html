@@ -74,13 +74,7 @@
     height: h,
    });
   }
-  //        selection.enter()
-  //            .append("div").text(function(d) {
-  //                return d;
-  //            });
-  //        selection.exit().remove();
-
-  //    console.log(d3.selectAll("svg"));
+ 
 
   function bind() {
    //rect------------------------
@@ -93,7 +87,7 @@
 
    selection.exit().remove();
 
-   //text--------------------------------
+   //text文字--------------------------------
    var selection_text = d3.select("svg")
     .selectAll("text")
     .data(arr); //綁定
