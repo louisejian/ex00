@@ -118,6 +118,50 @@
  </script>
  <input type="button" value="新增" onclick="update()">
  <input type="button" value="移除" onclick="update_remove()">
+	
+<hr>
+<svg width="900" height="400" id="svg5"></svg>	
+   <script>
+ 
+       //不動產橫條圖結合數據csv
+   d3.csv("invoice-taipei.csv", function(dataSet) {
+	 
+	 var svg3 = d3.select("#svg5"); 
+	 var xScale = d3.scale.linear()
+		.domain([0, 1000000000])
+		.range([0, 10]);
+       
+     var fDataSet = dataSet.filter(function(d) {
+        return d.amount > 1000000000 && d.date === "2016/8/1" && d.cid === "A";
+     });
+       
+     for (var i = 0; i < fDataSet.length; i++ ) {
+        svg3.append("text")
+			.attr({
+				"x": 10,
+				"y": 55 + 30 * i })
+			.text(fDataSet[i].industry);//填文字
+		
+		svg3.append("rect")
+			.attr({
+				"x": 350,
+				"y": 33 + 30 * i,
+				"width": xScale(fDataSet[i].amount),
+				"height": 25,
+				"fill": "#CA8EFF"//填色
+			});
+			
+		svg3.append("text")
+			.attr({
+				"x": 10+350+xScale(fDataSet[i].amount),
+				"y": 55 + 30 * i })
+			.text(fDataSet[i].amount);//甜數字
+	 } 
+	}); 
+
+    </script> 
+		
+	
 <hr>
 <h1>小王子</h1>
 然後他又回到狐狸那裡。 <br>
