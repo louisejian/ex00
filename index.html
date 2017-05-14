@@ -3,10 +3,7 @@
 <meta charset="utf-8">
 <html>
 <head>
-<<<<<<< HEAD
-=======
-<script src="https://d3js.org/d3.v3.min.js"></script>
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <style>
 .axis path, .axis line{
 	fill: none;
@@ -23,14 +20,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-<div class="demo"></div>
-<script src="https://d3js.org/d3.v3.min.js"></script>
-=======
 
 
 <div class="demo"></div>
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 <script>
     
 
@@ -39,11 +31,7 @@ d3.csv('d3Datawantwant.csv', function(data){
 	//console.debug(JSON.stringify(data));
 	dataset = data;
 
-<<<<<<< HEAD
-	var w = 700,h = 350,padding = 30, barMargin =20;
-=======
 	var w = 700,h = 350,padding = 30, barMargin =10;
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 	//定義寬高,padding等等值
 
 	var Ymax = d3.max(dataset, function(d){return d.value}),
@@ -57,21 +45,13 @@ d3.csv('d3Datawantwant.csv', function(data){
 
 	var yScale = d3.scale.linear()
 		.domain([Ymin, Ymax])
-<<<<<<< HEAD
-		.range([0, h ])
-=======
-		.range([h, 0 ])
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
+		.range([h,padding ])
 		//y軸的尺度
 	
 
 	var colorScale = d3.scale.linear()
 		.domain([Ymin, Ymax])
-<<<<<<< HEAD
-		.range([0, 700])
-=======
 		.range([700, 0])
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 		//顏色
 	var barWidth = (w - padding*2) / dataset.length - barMargin;
 
@@ -82,19 +62,11 @@ d3.csv('d3Datawantwant.csv', function(data){
 	.append('rect') // 增加到SVG內
 	.attr({	//加入屬性
 		'x': function(d, i){return xScale(i)}, //利用尺度算出X的位置
-<<<<<<< HEAD
-		'y': function(d){return h - yScale(d.value)}, //算出Y
+		'y': function(d){return yScale(d.value)}, //算出Y
 		'width': barWidth,
-		'height':function(d){return yScale(d.value)}, 
-		'fill': function(d){
-			var color = 0.2 + colorScale(d.value) * 0.001;
-=======
-		'y': function(d){return  yScale(d.value)}, //算出Y
-		'width': barWidth,
-		'height':function(d){return yScale(d.value)}, 
+		'height':function(d){return h-yScale(d.value)}, 
 		'fill': function(d){
 			var color = 0.1 + colorScale(d.value) * 0.001;
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 			return  d3.hsl(252 ,color, color); //利用尺度來算出顏色
 		},
 		'title': function(d){
@@ -108,13 +80,8 @@ d3.csv('d3Datawantwant.csv', function(data){
 	.append('text') 
 	.text(function(d){ return d.value}) //將值寫到SVG上
 	.attr({
-<<<<<<< HEAD
-		'x': function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
-		'y': function(d){return h - yScale(d.value) + 15},
-=======
 		'x': function(d, i){return xScale(i) + barWidth/2}, //算出X、Y的資料文字位置
 		'y': function(d){return  yScale(d.value) + 15},
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 		'fill': 'white', 
 		'text-anchor': 'middle',
 		'font-size': '10px' 
@@ -125,11 +92,7 @@ d3.csv('d3Datawantwant.csv', function(data){
 	.text(function(d){ return d.name}) //寫入產品名
 	.attr({
 		'x': function(d, i){return xScale(i) + barWidth/2}, //和上面相同，算出X、Y的位置
-<<<<<<< HEAD
-		'y': function(d){ return h - yScale(d.value)-5  },//文字高度
-=======
 		'y': function(d){ return  yScale(d.value)-5  },//文字高度
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
 		'fill': '#000000', 
 		'text-anchor': 'middle',
 		'font-size': '7px' ,
@@ -150,7 +113,6 @@ svg.append('g').attr('class', 'axis')
     
     
     
-<<<<<<< HEAD
 
 });
 
@@ -158,12 +120,3 @@ svg.append('g').attr('class', 'axis')
 
 </body>
 </html>
-=======
-
-});
-
-</script>
-
-</body>
-</html>
->>>>>>> 42c97140fa53f8cd13b427d3d0f4dee91b34c0ae
